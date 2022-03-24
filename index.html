@@ -6,14 +6,14 @@
 <title>欢迎</title>
 </head>
 	<body>
+		<script>
+                    setInterval("document.getElementById('datetime').innerHTML=new Date().toLocaleString();", 1000);
+                </script>
+		
 		<center>
 		    <h1>seinuo的个人网站</h1></hr>	
 		    <p >email:me@seinuo.com</p>
-            <div id="datetime" style="position:absolute;">
-                <script>
-                    setInterval("document.getElementById('datetime').innerHTML=new Date().toLocaleString();", 1000);
-                </script>
-            </div>
+            	    <div id="datetime"></div>
 		</center>
 		
 </html>
