@@ -3,7 +3,34 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>a{TEXT-DECORATION:none}</style>
+<style>
+.rainbow-text {
+    font-size: 48px; /* 字体大小 */
+
+    color: transparent; /* 文字颜色透明，以显示背景颜色 */
+    background: linear-gradient(90deg, purple, blue, cyan, yellow, green);
+    background-size: 200% 200%; /* 使渐变背景足够大，可以覆盖动画 */
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation: rainbow-animation 5s linear infinite; /* 添加动画 */
+  }
+
+  @keyframes rainbow-animation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+
+
+
+a{TEXT-DECORATION:none}</style>
 <title>惠及全球，Seinuo领航</title>
 </head>
 	<body style="background-image: linear-gradient(to right, #eea2a2 0%, #bbc1bf 19%, #57c6e1 42%, #b49fda 79%, #7ac5d8 100%);">
@@ -13,7 +40,7 @@
 		
 		<center>
 		    <h1>Seinuo的个人网站</h1></hr>	
-		    <p >email:me@seinuo.com</p>
+		    <p class="rainbow-text">email:me@seinuo.com</p>
 		    <a href="https://15910qe349.oicp.vip">测试</a>
 	    	    <a href="/MobaXterm1_CHS1.exe">masa</a>
             	    <div id="datetime"></div>
