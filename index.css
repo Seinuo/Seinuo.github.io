@@ -1,0 +1,145 @@
+.hidden {
+    visibility: hidden;
+}
+
+.rainbow-text {
+    font-size: 22px;
+    color: transparent;
+    background: linear-gradient(90deg, purple, blue, cyan, yellow, green);
+    background-size: 200% 200%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation: rainbow-animation 10s linear infinite;
+}
+
+@keyframes rainbow-animation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: #007AFF;
+    transform: translateY(-2px);
+}
+
+/* 基础样式 */
+body {
+    margin: 0;
+    min-height: 100vh;
+    background-image: linear-gradient(to right, #eea2a2 0%, #bbc1bf 19%, #57c6e1 42%, #b49fda 79%, #7ac5d8 100%);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* 头部容器 */
+.header-container {
+    width: 100%; 
+    text-align: center; 
+    padding: 40px 0;
+}
+
+/* 主标题 */
+.header-container h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+/* 毛玻璃容器增强版 */
+.glass-container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 30px;
+    margin: 15px;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+    width: 300px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+/* 动态内容区域 */
+.content-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 20px;
+    max-width: calc((300px + 30px) * 3); /* 300元素宽度 + 30左右margin */
+    margin: 0 auto;
+    padding: 20px;
+    margin-bottom: 120px;
+}
+
+footer {
+    position: fixed;
+    bottom: -100px;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    padding: 10px 0;
+    transition: all 0.5s ease-in-out;
+}
+
+footer.active {
+    bottom: 0;
+}
+
+footer > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    margin: 0 !important;
+    gap: 40px;
+}
+
+/* 删除旧的嵌套样式和调试代码 */
+img[alt="网站Logo"] { /* 保留原有动画效果 */
+    transition: transform 0.3s ease;
+}
+img[alt="网站Logo"]:hover {
+    transform: rotate(360deg) scale(1.2);
+}
+
+
+.glass-container {
+    flex: 0 0 calc(20% - 30px); /* 5列布局公式 */
+    margin: 15px;
+    /* 保留原有毛玻璃效果... */
+}
+
+
+/* 修改内容容器宽度 */
+.content-wrapper {
+    max-width: calc(3000px * 5 + 20px * 4); /* 5列x300px + 4个间隔x20px */
+    justify-content: center; /* 保持居中排列 */
+}
+
+
+
+/* 调试辅助线 */
+body::before {
+    content: "当前内容区宽度：" attr(data-width);
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    padding: 5px;
+    z-index: 9999;
+}
+
