@@ -3,43 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamic Page</title>
+    <title>Seinuo Industry</title>
     <link rel="stylesheet" href="app.css">
-    <script src="app.js"></script>
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <h1 class="animated-title">欢迎来到动态页面</h1>
-        
-        <div class="card glass-effect">
-            <div class="content">
-                <h2>特性展示</h2>
-                <p>🎉 悬停查看动态效果</p>
-                <div class="pulse-box"></div>
-                <button class="hover-button">点击互动</button>
-            </div>
+    <div class="chat-container">
+        <div class="chat-header">
+            <img src="https://img.picui.cn/free/2025/03/08/67cba48cb1f5f.png" alt="DeepSeek" class="logo">
+            <h1>美好的一天啊Seinuo，不是吗？</h1>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+            <div class="message system">我是小智，seinuo的私人助理，很高兴为您服务哦！</div>
+        </div>
+        <div class="chat-input">
+            <textarea id="userInput" placeholder="说点什么呢..." rows="1"></textarea>
+            <button id="sendButton" class="send-btn">
+                <i class="fas fa-paper-plane"></i>
+            </button>
         </div>
     </div>
-
-    <script>
-        // 鼠标跟随特效
-        document.addEventListener('mousemove', (e) => {
-            const cursor = document.createElement('div');
-            cursor.className = 'cursor-trail';
-            Object.assign(cursor.style, {
-                left: e.clientX + 'px',
-                top: e.clientY + 'px',
-                animation: `trailFade 0.8s ${Math.random() * 0.5}s linear`
-            });
-            document.body.appendChild(cursor);
-            setTimeout(() => cursor.remove(), 800);
-        });
-
-        // 按钮点击效果
-        document.querySelector('.hover-button').addEventListener('click', function() {
-            this.classList.add('click-effect');
-            setTimeout(() => this.classList.remove('click-effect'), 500);
-        });
-    </script>
+    <script src="app.js"></script>
 </body>
 </html>

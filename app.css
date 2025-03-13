@@ -1,109 +1,103 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+/* 基础样式 */
 body {
-    min-height: 100vh;
-    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
-    font-family: 'Segoe UI', sans-serif;
-    overflow-x: hidden;
+    margin: 0;
+    background: linear-gradient(to bottom, #A8F5DA, white); /* 新增渐变背景 */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    height: 100vh;
 }
 
-.container {
-    padding: 2rem;
+.chat-container {
     max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* 动态标题 */
-.animated-title {
-    text-align: center;
-    margin: 2rem 0;
-    font-size: 2.5rem;
-    background: linear-gradient(90deg, #ff6b6b, #ffe66d, #4ecdc4);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    animation: titleGlow 2s ease-in-out infinite;
-}
-
-/* 毛玻璃卡片 */
-.glass-effect {
-    background: rgba(255, 255, 255, 0.1);
+    margin: 20px auto;
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
-    border-radius: 15px;
-    padding: 2rem;
-    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
-    transition: transform 0.3s ease;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
 }
 
-.card:hover {
-    transform: translateY(-5px) rotate(1deg);
-}
-
-/* 脉冲动画 */
-.pulse-box {
-    width: 100px;
-    height: 100px;
-    background: rgba(255,255,255,0.2);
-    border-radius: 50%;
-    margin: 1rem auto;
-    animation: pulse 1.5s ease-in-out infinite;
-}
-
-/* 按钮效果 */
-.hover-button {
-    padding: 12px 24px;
-    background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
-    border: none;
-    border-radius: 25px;
+.chat-header {
+    background: #3498db;
     color: white;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+}
+
+.chat-messages {
+    height: 70vh;
+    overflow-y: auto;
+    padding: 20px;
+    background: rgba(249, 249, 249, 0.9);
+}
+
+.message {
+    margin: 15px 0;
+    padding: 15px 20px;
+    border-radius: 15px;
+    max-width: 70%;
+    animation: fadeIn 0.3s ease;
+}
+
+/* 用户消息样式 */
+.message.user {
+    background: #3498db;
+    color: white;
+    margin-left: auto;
+}
+
+/* AI消息样式 */
+.message.ai {
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    color: #67ee19;
+}
+
+/* 加载中状态 */
+.message.loading {
+    background: #f8fafc;
+    color: #94a3b8;
+    width: 120px;
+}
+
+.chat-input {
+    display: flex;
+    padding: 20px;
+    gap: 15px;
+    border-top: 1px solid #e2e8f0;
+}
+
+textarea {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 12px;
+    resize: none;
+    font-size: 16px;
+    max-height: 150px;
+}
+
+.send-btn {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 12px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: transform 0.2s ease;
 }
 
-.hover-button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 5px 15px rgba(255,107,107,0.4);
+.send-btn:hover {
+    transform: translateY(-2px);
 }
 
-/* 鼠标轨迹 */
-@keyframes trailFade {
-    0% { opacity: 1; transform: scale(0); }
-    100% { opacity: 0; transform: scale(1); }
-}
-
-.cursor-trail {
-    position: fixed;
-    width: 10px;
-    height: 10px;
-    background: rgba(255,255,255,0.6);
-    border-radius: 50%;
-    pointer-events: none;
-}
-
-/* 关键帧动画 */
-@keyframes titleGlow {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-}
-
-@keyframes pulse {
-    0% { transform: scale(0.9); opacity: 0.7; }
-    50% { transform: scale(1.1); opacity: 1; }
-    100% { transform: scale(0.9); opacity: 0.7; }
-}
-
-/* 手机适配 */
-@media (max-width: 768px) {
-    .animated-title {
-        font-size: 1.8rem;
-    }
-    
-    .glass-effect {
-        margin: 1rem;
-        padding: 1.5rem;
-    }
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
