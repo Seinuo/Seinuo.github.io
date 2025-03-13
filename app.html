@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Page</title>
+    <link rel="stylesheet" href="app.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="animated-title">欢迎来到动态页面</h1>
+        
+        <div class="card glass-effect">
+            <div class="content">
+                <h2>特性展示</h2>
+                <p>🎉 悬停查看动态效果</p>
+                <div class="pulse-box"></div>
+                <button class="hover-button">点击互动</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 鼠标跟随特效
+        document.addEventListener('mousemove', (e) => {
+            const cursor = document.createElement('div');
+            cursor.className = 'cursor-trail';
+            Object.assign(cursor.style, {
+                left: e.clientX + 'px',
+                top: e.clientY + 'px',
+                animation: `trailFade 0.8s ${Math.random() * 0.5}s linear`
+            });
+            document.body.appendChild(cursor);
+            setTimeout(() => cursor.remove(), 800);
+        });
+
+        // 按钮点击效果
+        document.querySelector('.hover-button').addEventListener('click', function() {
+            this.classList.add('click-effect');
+            setTimeout(() => this.classList.remove('click-effect'), 500);
+        });
+    </script>
+</body>
+</html>

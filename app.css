@@ -1,0 +1,109 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    font-family: 'Segoe UI', sans-serif;
+    overflow-x: hidden;
+}
+
+.container {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 动态标题 */
+.animated-title {
+    text-align: center;
+    margin: 2rem 0;
+    font-size: 2.5rem;
+    background: linear-gradient(90deg, #ff6b6b, #ffe66d, #4ecdc4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: titleGlow 2s ease-in-out infinite;
+}
+
+/* 毛玻璃卡片 */
+.glass-effect {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px) rotate(1deg);
+}
+
+/* 脉冲动画 */
+.pulse-box {
+    width: 100px;
+    height: 100px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    margin: 1rem auto;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* 按钮效果 */
+.hover-button {
+    padding: 12px 24px;
+    background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+    border: none;
+    border-radius: 25px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.hover-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(255,107,107,0.4);
+}
+
+/* 鼠标轨迹 */
+@keyframes trailFade {
+    0% { opacity: 1; transform: scale(0); }
+    100% { opacity: 0; transform: scale(1); }
+}
+
+.cursor-trail {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background: rgba(255,255,255,0.6);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+/* 关键帧动画 */
+@keyframes titleGlow {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+@keyframes pulse {
+    0% { transform: scale(0.9); opacity: 0.7; }
+    50% { transform: scale(1.1); opacity: 1; }
+    100% { transform: scale(0.9); opacity: 0.7; }
+}
+
+/* 手机适配 */
+@media (max-width: 768px) {
+    .animated-title {
+        font-size: 1.8rem;
+    }
+    
+    .glass-effect {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+}
